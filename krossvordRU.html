@@ -6,41 +6,45 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f0f8ff;
+      background-color: #e6f7ff;
       text-align: center;
       padding: 20px;
     }
     h1 {
-      color: #d40000;
+      color: #b30000;
     }
     .crossword {
       display: inline-block;
       margin: 20px auto;
-      border: 2px solid #333;
+      border: 2px solid #222;
     }
     .crossword td {
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       text-align: center;
       vertical-align: middle;
       font-weight: bold;
-      font-size: 18px;
-      background-color: #fff;
-      border: 1px solid #999;
+      font-size: 16px;
+      background-color: #ffffff;
+      border: 1px solid #888;
+      line-height: 1;
     }
     .black {
-      background-color: #333;
+      background-color: #222222;
     }
     .clues {
       max-width: 600px;
-      margin: 0 auto;
+      margin: 20px auto;
       text-align: left;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 8px;
     }
     .clues h2 {
-      color: #006400;
+      color: #005000;
     }
     .clue {
-      margin: 5px 0;
+      margin: 6px 0;
     }
   </style>
 </head>
@@ -49,67 +53,104 @@
 <h1>🎄 Новогодний кроссворд 🎄</h1>
 
 <table class="crossword" cellpadding="0" cellspacing="0">
-  <!-- Сетка 15x15 -->
-  <script>
-    // Генерация таблицы через JS для удобства и читаемости
-    const grid = Array(15).fill().map(() => Array(15).fill(''));
-
-    // Заполняем сетку словами
-    const words = [
-      {word: "ЁЛКА", x: 1, y: 2, dir: "h"},       // по горизонтали
-      {word: "ДЕДМОРОЗ", x: 4, y: 0, dir: "v"},   // по вертикали
-      {word: "СНЕГОВИК", x: 6, y: 5, dir: "h"},
-      {word: "МЁДВЕЖОН", x: 0, y: 4, dir: "h"},
-      {word: "ПОДАРОК", x: 8, y: 2, dir: "v"},
-      {word: "ХЛОПУШКА", x: 5, y: 10, dir: "h"},
-      {word: "МАСКАРАД", x: 1, y: 12, dir: "h"},
-      {word: "ЗИМА", x: 12, y: 6, dir: "v"},
-      {word: "САНИ", x: 10, y: 9, dir: "v"},
-      {word: "ОЛЕНЬ", x: 3, y: 13, dir: "h"}
-    ];
-
-    words.forEach(w => {
-      const word = w.word;
-      if (w.dir === "h") {
-        for (let i = 0; i < word.length; i++) {
-          if (w.y < 15 && w.x + i < 15) grid[w.y][w.x + i] = word[i];
-        }
-      } else if (w.dir === "v") {
-        for (let i = 0; i < word.length; i++) {
-          if (w.y + i < 15 && w.x < 15) grid[w.y + i][w.x] = word[i];
-        }
-      }
-    });
-
-    // Вывод таблицы
-    document.write('<tbody>');
-    for (let r = 0; r < 15; r++) {
-      document.write('<tr>');
-      for (let c = 0; c < 15; c++) {
-        if (grid[r][c] === '') {
-          document.write('<td class="black"></td>');
-        } else {
-          document.write(`<td>${grid[r][c]}</td>`);
-        }
-      }
-      document.write('</tr>');
-    }
-    document.write('</tbody>');
-  </script>
+  <tbody>
+    <!-- Строка 0 -->
+    <tr>
+      <td>Д</td><td>Е</td><td>Д</td><td>М</td><td>О</td><td>Р</td><td>О</td><td>З</td>
+      <td class="black"></td><td>Ё</td><td>Л</td><td>К</td><td>А</td>
+      <td class="black"></td><td class="black"></td>
+    </tr>
+    <!-- Строка 1 -->
+    <tr>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td>
+    </tr>
+    <!-- Строка 2 -->
+    <tr>
+      <td>С</td><td>Н</td><td>Е</td><td>Г</td><td>О</td><td>В</td><td>И</td><td>К</td>
+      <td>П</td><td>О</td><td>Д</td><td>А</td><td>Р</td><td>О</td><td>К</td>
+    </tr>
+    <!-- Строка 3 -->
+    <tr>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td>
+    </tr>
+    <!-- Строка 4 -->
+    <tr>
+      <td>М</td><td>А</td><td>С</td><td>К</td><td>А</td><td>Р</td><td>А</td><td>Д</td>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td>
+    </tr>
+    <!-- Строка 5 -->
+    <tr>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td>
+    </tr>
+    <!-- Строка 6 -->
+    <tr>
+      <td>Х</td><td>Л</td><td>О</td><td>П</td><td>У</td><td>Ш</td><td>К</td><td>А</td>
+      <td class="black"></td><td>З</td><td>И</td><td>М</td><td>А</td>
+      <td class="black"></td><td class="black"></td>
+    </tr>
+    <!-- Строка 7 -->
+    <tr>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td>
+    </tr>
+    <!-- Строка 8 -->
+    <tr>
+      <td class="black"></td><td>С</td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td>
+    </tr>
+    <!-- Строка 9 -->
+    <tr>
+      <td class="black"></td><td>А</td><td class="black"></td><td>О</td><td>Л</td><td>Е</td><td>Н</td><td>Ь</td>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td>
+    </tr>
+    <!-- Строка 10 -->
+    <tr>
+      <td class="black"></td><td>Н</td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td>Г</td><td>О</td><td>Д</td>
+    </tr>
+    <!-- Строка 11 -->
+    <tr>
+      <td class="black"></td><td>И</td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      <td class="black"></td><td class="black"></td><td class="black"></td>
+    </tr>
+    <!-- Строка 12-14 -->
+    <tr><td colspan="15" class="black"></td></tr>
+    <tr><td colspan="15" class="black"></td></tr>
+    <tr><td colspan="15" class="black"></td></tr>
+  </tbody>
 </table>
 
 <div class="clues">
   <h2>Слова в кроссворде:</h2>
-  <div class="clue">1. Ёлка</div>
-  <div class="clue">2. Дед Мороз</div>
-  <div class="clue">3. Снеговик</div>
-  <div class="clue">4. Мёдвежон</div>
-  <div class="clue">5. Подарок</div>
-  <div class="clue">6. Хлопушка</div>
-  <div class="clue">7. Маскарад</div>
-  <div class="clue">8. Зима</div>
-  <div class="clue">9. Саны</div>
-  <div class="clue">10. Олень</div>
+  <div class="clue">1. ДЕДМОРОЗ</div>
+  <div class="clue">2. ЁЛКА</div>
+  <div class="clue">3. СНЕГОВИК</div>
+  <div class="clue">4. ПОДАРОК</div>
+  <div class="clue">5. МАСКАРАД</div>
+  <div class="clue">6. ХЛОПУШКА</div>
+  <div class="clue">7. ЗИМА</div>
+  <div class="clue">8. САНИ</div>
+  <div class="clue">9. ОЛЕНЬ</div>
+  <div class="clue">10. ГОД</div>
 </div>
 
 </body>
