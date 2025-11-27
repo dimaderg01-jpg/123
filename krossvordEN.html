@@ -2,67 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Christmas Crossword (Solved)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>5x5 English Crossword</title>
   <style>
-    body { font-family: Arial; background: #e6f7ff; text-align: center; padding: 20px; }
-    h1 { color: #c00; }
-    table { border-collapse: collapse; margin: 20px auto; }
-    td { width: 40px; height: 40px; border: 1px solid #000; background: white; font-weight: bold; font-size: 18px; position: relative; }
-    .blk { background: #000; }
-    .num { position: absolute; top: 2px; left: 2px; font-size: 10px; color: red; }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+    .crossword {
+      display: grid;
+      grid-template-columns: repeat(5, 50px);
+      grid-template-rows: repeat(5, 50px);
+      gap: 2px;
+    }
+    .cell {
+      width: 50px;
+      height: 50px;
+      background: white;
+      border: 2px solid #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #222;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 20px;
+      color: #333;
+    }
   </style>
 </head>
 <body>
-  <h1>🎄 Christmas Crossword (Solved) 🎄</h1>
+  <div style="text-align: center;">
+    <h2>5×5 English Crossword (All Words Valid)</h2>
+    <div class="crossword">
+      <div class="cell">C</div>
+      <div class="cell">R</div>
+      <div class="cell">E</div>
+      <div class="cell">D</div>
+      <div class="cell">O</div>
 
-  <table>
-    <tr>
-      <td class="blk"></td>
-      <td><span class="num">1</span>S</td>
-      <td>T</td>
-      <td>A</td>
-      <td>R</td>
-    </tr>
-    <tr>
-      <td><span class="num">2</span>S</td>
-      <td>N</td>
-      <td class="blk"></td>
-      <td class="blk"></td>
-      <td class="blk"></td>
-    </tr>
-    <tr>
-      <td>N</td>
-      <td>O</td>
-      <td class="blk"></td>
-      <td class="blk"></td>
-      <td class="blk"></td>
-    </tr>
-    <tr>
-      <td>O</td>
-      <td>W</td>
-      <td><span class="num">3</span>E</td>
-      <td>L</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <td class="blk"></td>
-      <td class="blk"></td>
-      <td><span class="num">4</span>N</td>
-      <td>O</td>
-      <td>E</td>
-    </tr>
-  </table>
+      <div class="cell">R</div>
+      <div class="cell">E</div>
+      <div class="cell">P</div>
+      <div class="cell">E</div>
+      <div class="cell">L</div>
 
-  <div style="max-width: 500px; margin: 20px auto; text-align: left;">
-    <h3>Across:</h3>
-    <p>1. Top decoration on the Christmas tree (4)</p>
-    <p>3. Santa's magical helper (3)</p>
-    <p>4. "Christmas" in French (3)</p>
-    <h3>Down:</h3>
-    <p>2. White winter precipitation (4)</p>
-    <p>5. Holiday present (implied by context)</p>
+      <div class="cell">E</div>
+      <div class="cell">P</div>
+      <div class="cell">I</div>
+      <div class="cell">C</div>
+      <div class="cell">S</div>
+
+      <div class="cell">D</div>
+      <div class="cell">E</div>
+      <div class="cell">C</div>
+      <div class="cell">A</div>
+      <div class="cell">F</div>
+
+      <div class="cell">O</div>
+      <div class="cell">L</div>
+      <div class="cell">S</div>
+      <div class="cell">E</div>
+      <div class="cell">N</div>
+    </div>
   </div>
-
-  <p><em>The crossword is already solved! 🎁</em></p>
 </body>
 </html>
