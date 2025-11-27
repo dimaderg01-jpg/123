@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Новогодний кроссворд</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e6f7ff;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #d40000;
+    }
+    .crossword {
+      display: inline-block;
+      margin: 20px auto;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(9, 40px);
+      gap: 2px;
+    }
+    .cell {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-weight: bold;
+      background: white;
+    }
+    .black {
+      background: #333;
+    }
+    .word-list {
+      margin-top: 20px;
+      text-align: left;
+      display: inline-block;
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .word-list h2 {
+      margin-top: 0;
+      color: #0066cc;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎄 Новогодний кроссворд 🎁</h1>
+
+<div class="crossword">
+  <div class="grid" id="crosswordGrid">
+    <!-- Сетка будет заполнена JS -->
+  </div>
+</div>
+
+<div class="word-list">
+  <h2>Слова:</h2>
+  <ol>
+    <li>Новогоднее дерево</li>
+    <li>Дед ... (с бородой и мешком)</li>
+    <li>Добрый ... (но щиплет за нос!)</li>
+    <li>Белый, пушистый, зимний</li>
+    <li>Западный дед Мороз</li>
+    <li>То, что лежит под ёлкой</li>
+    <li>Ёлочное украшение</li>
+    <li>Шумная новогодняя игрушка</li>
+    <li>Салат на праздничном столе</li>
+    <li>То, что бьёт полночь (символично)</li>
+  </ol>
+</div>
+
+<script>
+  // Предзаполненная сетка 9x9 (0 — пустая клетка, 1 — чёрная, буква — заполненная)
+  const gridData = [
+    ['Ё', 'Л', 'К', 'А', '1', '1', '1', '1', '1'],
+    ['1', '1', '1', 'Д', '1', 'С', '1', '1', '1'],
+    ['М', 'О', 'Р', 'О', 'З', 'Н', '1', '1', '1'],
+    ['1', '1', '1', '1', '1', 'Е', '1', '1', '1'],
+    ['1', '1', '1', '1', '1', 'Г', '1', '1', '1'],
+    ['С', 'А', 'Н', 'Т', 'А', '1', 'П', '1', '1'],
+    ['1', '1', '1', '1', '1', '1', 'О', '1', '1'],
+    ['1', '1', '1', '1', '1', '1', 'Д', '1', '1'],
+    ['1', '1', '1', '1', '1', '1', 'А', 'Р', 'О']
+  ];
+
+  const grid = document.getElementById('crosswordGrid');
+
+  for (let row = 0; row < 9; row++) {
+    for (let col = 0; col < 9; col++) {
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      const value = gridData[row][col];
+      if (value === '1') {
+        cell.classList.add('black');
+      } else if (value) {
+        cell.textContent = value;
+      }
+      grid.appendChild(cell);
+    }
+  }
+</script>
+
+</body>
+</html>

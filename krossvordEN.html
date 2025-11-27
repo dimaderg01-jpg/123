@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>New Year Crossword</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #0a3d62, #1e5799);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .crossword-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 50px);
+      gap: 2px;
+      justify-content: center;
+      margin: 20px auto;
+    }
+    .cell {
+      width: 50px;
+      height: 50px;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #0a3d62;
+      border: 1px solid #2c3e50;
+    }
+    .black {
+      background: #2c3e50;
+    }
+    .clues {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+      text-align: left;
+    }
+    .clues h2 {
+      margin-top: 0;
+    }
+    .clues ol {
+      padding-left: 20px;
+    }
+    .clues li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🎄 New Year Crossword 🎁</h1>
+
+  <div class="crossword-grid" id="grid"></div>
+
+  <div class="clues">
+    <h2>Clues:</h2>
+    <ol>
+      <li>White flakes that fall in winter (4 letters)</li>
+      <li>Decorated evergreen for the holidays (4 letters)</li>
+      <li>Present under the tree (4 letters)</li>
+      <li>French Christmas greeting (4 letters)</li>
+      <li>Santa’s little helper (3 letters)</li>
+    </ol>
+  </div>
+
+  <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+    Words: SNOW, TREE, GIFT, NOEL, ELF
+  </p>
+</div>
+
+<script>
+  // 5x5 grid layout
+  // S N O W .
+  // . . . R .
+  // G I F T .
+  // . . . E .
+  // N O E L .
+
+  const gridData = [
+    ['S', 'N', 'O', 'W', '1'],
+    ['1', '1', '1', 'R', '1'],
+    ['G', 'I', 'F', 'T', '1'],
+    ['1', '1', '1', 'E', '1'],
+    ['N', 'O', 'E', 'L', '1']
+  ];
+
+  const grid = document.getElementById('grid');
+
+  for (let row = 0; row < 5; row++) {
+    for (let col = 0; col < 5; col++) {
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      const val = gridData[row][col];
+      if (val === '1') {
+        cell.classList.add('black');
+      } else {
+        cell.textContent = val;
+      }
+      grid.appendChild(cell);
+    }
+  }
+</script>
+
+</body>
+</html>
