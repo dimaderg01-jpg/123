@@ -8,8 +8,8 @@ css
 }
 
 body {
-    background-color: #0000ff; /* Синий фон */
-    color: #ffa500; /* Оранжевый текст для всего body */
+    background-color: #00008b; /* Синий фон */
+    color: #ffd700; /* Оранжевый текст для всего body */
     margin-left: 20%;
     margin-right: 20%;
     border: 2px dotted black;
