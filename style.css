@@ -8,11 +8,11 @@ css
 }
 
 body {
-    background-color: #00008b; /* Синий фон */
+    background-color: #00118b /* Синий фон */
     color: #ffd700; /* Оранжевый текст для всего body */
     margin-left: 20%;
     margin-right: 20%;
-    border: 2px dotted black;
+    border: 1px dotted black;
     padding: 10px;
     font-family: sans-serif; /* Исправил "sans serif" на "sans-serif" */
 }
