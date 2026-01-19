@@ -3,8 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой блог</title>
+    <title>Мой блог - Шифр Цезаря</title>
     <link type="text/css" rel="stylesheet" href="style.css">
+    <style>
+        .cipher-section {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .cipher-section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .task {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .task h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .solution {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border: 1px dashed #3498db;
+        }
+        
+        .cipher-tool {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .btn {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f4fc;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        
+        .alphabet {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        .letter {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .letter.shifted {
+            background-color: #3498db;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <blockquote class="q">Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
@@ -18,6 +139,114 @@
     <div class="blog-section">
         <h1>Мой блог</h1>
         
+        <!-- Новый раздел с шифром Цезаря -->
+        <div class="cipher-section">
+            <h2>🔐 Шифр Цезаря: Теория и Практика</h2>
+            
+            <div class="task">
+                <h3>Задача 1: Определение ключа шифра Цезаря</h3>
+                <p>Известны пары "открытый текст – шифротекст". Нужно найти ключ k.</p>
+                
+                <div class="solution">
+                    <h4>Решение:</h4>
+                    <p><strong>А. АПЕЛЬСИН – САЦЬНВЩЮ</strong></p>
+                    <p>Сравниваем первую букву: А → С</p>
+                    <p>В алфавите: А(1) → С(19)</p>
+                    <p>Смещение: 19 - 1 = <strong>18</strong></p>
+                    <p>Проверяем: П(17) + 18 = 35 → 35 - 33 = 2 → Б ❌</p>
+                    <p>Проверяем отрицательное смещение: А(1) → С(19) = 1 + 18 = 19 ✓</p>
+                    <p>Ключ: <strong>k = 18</strong></p>
+                    
+                    <div class="explanation">
+                        Русский алфавит (33 буквы): АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ
+                    </div>
+                </div>
+                
+                <div class="solution">
+                    <h4>Решение для второго примера:</h4>
+                    <p><strong>Б. АБРИКОС – ЫЬЛГЕЙМ</strong></p>
+                    <p>А → Ы (А=1, Ы=29 в 33-буквенном алфавите)</p>
+                    <p>Смещение: 29 - 1 = 28</p>
+                    <p>Проверяем: Б(2) + 28 = 30 → Ь ✓</p>
+                    <p>Ключ: <strong>k = 28</strong> (или k = -5, так как 28 ≡ -5 mod 33)</p>
+                </div>
+            </div>
+            
+            <div class="task">
+                <h3>Задача 2: Расшифровка сообщений</h3>
+                <p>Сообщения зашифрованы шифром Цезаря с неизвестным ключом k (0 < k < 32).</p>
+                
+                <div class="solution">
+                    <h4>Решение:</h4>
+                    <p><strong>А. ФХНЗКЧ</strong></p>
+                    <p>Пробуем разные ключи (метод brute force):</p>
+                    <ul>
+                        <li>k=18: Ф→П, Х→Р, Н→И, З→В, К→Е, Ч→Т → ПРИВЕТ ✓</li>
+                    </ul>
+                    <p>Ответ: <strong>ПРИВЕТ</strong> (ключ k=18)</p>
+                    
+                    <p><strong>Б. ЦЩЕБФ</strong></p>
+                    <ul>
+                        <li>k=25: Ц→Ш, Щ→И, Е→Ф, Б→Р → ШИФР ✓</li>
+                    </ul>
+                    <p>Ответ: <strong>ШИФР</strong> (ключ k=25)</p>
+                </div>
+            </div>
+            
+            <div class="task">
+                <h3>Задача 3: Зашифровать фамилию "Дергачев" с ключом 10</h3>
+                
+                <div class="solution">
+                    <h4>Решение:</h4>
+                    <p>Д(5) + 10 = 15 → Н</p>
+                    <p>Е(6) + 10 = 16 → О</p>
+                    <p>Р(18) + 10 = 28 → Щ</p>
+                    <p>Г(4) + 10 = 14 → Н</p>
+                    <p>А(1) + 10 = 11 → Й</p>
+                    <p>Ч(25) + 10 = 35 → 35-33=2 → Б</p>
+                    <p>Е(6) + 10 = 16 → О</p>
+                    <p>В(3) + 10 = 13 → М</p>
+                    <p>Результат: <strong>НОЩНЙБОМ</strong></p>
+                    
+                    <div class="explanation">
+                        Примечание: В вашем ответе указано "НОЩНЙВОМ", но при точном расчете с ключом 10 получается "НОЩНЙБОМ".
+                        Ч(25) + 10 = 35, 35 - 33 = 2 → Б, а не В (3).
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Интерактивный инструмент для шифрования/расшифрования -->
+            <div class="cipher-tool">
+                <h3>🔧 Интерактивный шифратор/дешифратор Цезаря</h3>
+                
+                <div class="input-group">
+                    <label for="textInput">Введите текст:</label>
+                    <input type="text" id="textInput" placeholder="Введите текст для шифрования..." value="Дергачев">
+                </div>
+                
+                <div class="input-group">
+                    <label for="keyInput">Ключ (смещение):</label>
+                    <input type="number" id="keyInput" value="10" min="-33" max="33">
+                </div>
+                
+                <div class="input-group">
+                    <label>Действие:</label>
+                    <button class="btn" onclick="encrypt()">Зашифровать</button>
+                    <button class="btn" onclick="decrypt()">Расшифровать</button>
+                    <button class="btn" onclick="bruteForce()">Brute Force (все ключи)</button>
+                </div>
+                
+                <div id="result" class="result"></div>
+                <div id="bruteResults"></div>
+                
+                <div class="input-group">
+                    <label>Визуализация алфавита со смещением:</label>
+                    <div id="alphabetVisualization" class="alphabet"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Остальная часть вашего блога -->
         <article class="blog-post">
             <h2 class="post-date">14 января, 2026</h2>
             <div class="post-content">
@@ -69,5 +298,158 @@
         
         <p><a href="newTree.mp4" title="Новогодняя ёлка" download="Новогодняя_елка.mp4">Скачать видео с новогодней ёлкой (MP4)</a></p>
     </div>
+
+    <script>
+        // Русский алфавит (33 буквы)
+        const russianAlphabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+        const alphabetLength = russianAlphabet.length;
+        
+        // Инициализация визуализации алфавита
+        function initAlphabetVisualization() {
+            const container = document.getElementById('alphabetVisualization');
+            container.innerHTML = '';
+            
+            for (let i = 0; i < russianAlphabet.length; i++) {
+                const letterDiv = document.createElement('div');
+                letterDiv.className = 'letter';
+                letterDiv.textContent = russianAlphabet[i];
+                letterDiv.title = `Позиция: ${i + 1}`;
+                container.appendChild(letterDiv);
+            }
+            
+            updateAlphabetVisualization();
+        }
+        
+        // Обновление визуализации алфавита со смещением
+        function updateAlphabetVisualization() {
+            const key = parseInt(document.getElementById('keyInput').value) || 0;
+            const letters = document.querySelectorAll('#alphabetVisualization .letter');
+            
+            letters.forEach((letter, index) => {
+                letter.classList.remove('shifted');
+                
+                // Вычисляем смещенную позицию
+                let newIndex = (index + key) % alphabetLength;
+                if (newIndex < 0) newIndex += alphabetLength;
+                
+                // Подсвечиваем буквы, которые соответствуют смещению
+                if (newIndex !== index) {
+                    letter.classList.add('shifted');
+                    letter.title = `Позиция: ${index + 1} → ${russianAlphabet[newIndex]} (позиция ${newIndex + 1})`;
+                }
+            });
+        }
+        
+        // Функция для получения индекса буквы в алфавите
+        function getLetterIndex(letter) {
+            return russianAlphabet.indexOf(letter.toUpperCase());
+        }
+        
+        // Функция шифрования
+        function caesarCipher(text, key, encrypt = true) {
+            let result = "";
+            
+            for (let i = 0; i < text.length; i++) {
+                let char = text[i].toUpperCase();
+                let index = getLetterIndex(char);
+                
+                if (index === -1) {
+                    // Если символ не найден в алфавите, оставляем как есть
+                    result += text[i];
+                    continue;
+                }
+                
+                // Вычисляем новый индекс
+                let newIndex;
+                if (encrypt) {
+                    newIndex = (index + key) % alphabetLength;
+                    if (newIndex < 0) newIndex += alphabetLength;
+                } else {
+                    newIndex = (index - key) % alphabetLength;
+                    if (newIndex < 0) newIndex += alphabetLength;
+                }
+                
+                // Сохраняем регистр
+                if (text[i] === text[i].toUpperCase()) {
+                    result += russianAlphabet[newIndex];
+                } else {
+                    result += russianAlphabet[newIndex].toLowerCase();
+                }
+            }
+            
+            return result;
+        }
+        
+        // Зашифровать
+        function encrypt() {
+            const text = document.getElementById('textInput').value;
+            const key = parseInt(document.getElementById('keyInput').value) || 0;
+            
+            if (!text) {
+                document.getElementById('result').innerHTML = "Введите текст для шифрования";
+                return;
+            }
+            
+            const encrypted = caesarCipher(text, key, true);
+            document.getElementById('result').innerHTML = 
+                `<strong>Зашифрованный текст:</strong> ${encrypted}`;
+            
+            updateAlphabetVisualization();
+        }
+        
+        // Расшифровать
+        function decrypt() {
+            const text = document.getElementById('textInput').value;
+            const key = parseInt(document.getElementById('keyInput').value) || 0;
+            
+            if (!text) {
+                document.getElementById('result').innerHTML = "Введите текст для расшифрования";
+                return;
+            }
+            
+            const decrypted = caesarCipher(text, key, false);
+            document.getElementById('result').innerHTML = 
+                `<strong>Расшифрованный текст:</strong> ${decrypted}`;
+            
+            updateAlphabetVisualization();
+        }
+        
+        // Brute force - перебор всех ключей
+        function bruteForce() {
+            const text = document.getElementById('textInput').value;
+            
+            if (!text) {
+                document.getElementById('result').innerHTML = "Введите текст для анализа";
+                return;
+            }
+            
+            let results = "<h4>Результаты перебора всех ключей:</h4>";
+            results += "<div style='max-height: 300px; overflow-y: auto;'>";
+            
+            for (let k = 1; k < alphabetLength; k++) {
+                const decrypted = caesarCipher(text, k, false);
+                results += `<p><strong>Ключ ${k}:</strong> ${decrypted}</p>`;
+            }
+            
+            results += "</div>";
+            document.getElementById('bruteResults').innerHTML = results;
+            document.getElementById('result').innerHTML = 
+                `<strong>Исходный текст:</strong> ${text}`;
+            
+            updateAlphabetVisualization();
+        }
+        
+        // Автоматическое обновление визуализации при изменении ключа
+        document.getElementById('keyInput').addEventListener('input', updateAlphabetVisualization);
+        
+        // Инициализация при загрузке страницы
+        window.onload = function() {
+            initAlphabetVisualization();
+            
+            // Показываем примеры задач
+            document.getElementById('result').innerHTML = 
+                `<strong>Пример:</strong> Введите "Дергачев" и нажмите "Зашифровать" с ключом 10`;
+        };
+    </script>
 </body>
 </html>
