@@ -8,22 +8,22 @@ css
 }
 
 body {
-    background-color: #00118b /* Синий фон */
-    color: #ffd700; /* Оранжевый текст для всего body */
+    background-color: #11118b
+    color: #ffd700; 
     margin-left: 20%;
     margin-right: 20%;
     border: 1px dotted black;
     padding: 10px;
-    font-family: sans-serif; /* Исправил "sans serif" на "sans-serif" */
+    font-family: sans-serif; 
 }
 
 blockquote.q {
-    color: #ffa500; /* Оранжевый текст для цитаты */
+    color: #ffa500; 
     border-left: 4px solid #8B0000;
     font-style: italic;
 }
 
 p.quote {
     font-family: "Pudelinka", cursive;
-    color: #ffa500; /* Явно задаем оранжевый для абзацев с цитатой */
+    color: #ffa500; 
 }
