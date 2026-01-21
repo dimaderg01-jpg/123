@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мой блог - Криптография: Цезарь и RSA</title>
     <link type="text/css" rel="stylesheet" href="style.css">
+    <!-- Подключаем шрифт Pudelinka -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* Основные стили остаются без изменений */
         .cipher-section {
             margin: 30px 0;
             padding: 20px;
@@ -140,6 +143,30 @@
             border-bottom: 2px solid #e74c3c;
             padding-bottom: 10px;
             margin-bottom: 20px;
+        }
+        
+        /* Стиль для заголовка RSA */
+        .rsa-title {
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            font-size: 2.5em;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 0px rgba(231, 76, 60, 0.2);
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, #3498db, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 10px;
+            border-bottom: 3px dashed #3498db;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
         }
         
         .rsa-key {
@@ -326,7 +353,8 @@
         <h2>21 Января, 2026</h2>
         
         <div class="rsa-section">
-            <h1>🔐 Учебный пример шифрования RSA</h1>
+            <!-- Измененный заголовок с шрифтом Pudelinka -->
+            <h1 class="rsa-title">🔐 Учебный пример шифрования RSA</h1>
             
             <h2>1. Генерация ключей</h2>
             <p>Выбираем простые числа:</p>
